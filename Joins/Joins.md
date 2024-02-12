@@ -51,5 +51,54 @@ INNER JOIN Orders o ON c.customer_id = o.customer_id;
 #### After inner Join
 ![alt text](img/innerjoin.png)
 
+As seen in the above output, the inner join returns a result set that contains row in the left table that matches the row in the right table.
 
+The Venn diagram for INNER JOIN is as below:
+![alt text](img/innerjoin_img.png)
+
+
+
+## Let's take another example 
+```sql
+CREATE TABLE zoo_1 (
+    id INT PRIMARY KEY,
+    animal VARCHAR (100) NOT NULL
+);
+
+CREATE TABLE zoo_2 (
+    id INT PRIMARY KEY,
+    animal VARCHAR (100) NOT NULL
+);
+
+INSERT INTO zoo_1(id, animal)
+VALUES
+    (1, 'Lion'),
+    (2, 'Tiger'),
+    (3, 'Wolf'),
+    (4, 'Fox');
+	
+INSERT INTO zoo_2(id, animal)
+VALUES
+    (1, 'Tiger'),
+    (2, 'Lion'),
+    (3, 'Rhino'),
+    (4, 'Panther');
+	
+	
+SELECT *
+FROM zoo_1 
+INNER JOIN zoo_2 ON zoo_1.animal = zoo_2.animal;
+
+```
+
+### Let's look at the tables how it looks 
+Zoo_1 table Looks Like this 
+![alt text](img/zoo_1.png)
+
+Zoo_2 table Looks Like this
+
+![alt text](img/zoo_2.png)
+
+## Now Inner Join of these two tables 
+![alt text](img/innerjoin_zoo.png)
 
