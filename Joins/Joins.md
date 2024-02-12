@@ -221,3 +221,8 @@ Let's Look at Tables
 
 > FULL OUTER JOIN TABLE
 ![alt text](img/full_outer_JOIN.png)
+
+
+The Venn diagram for a FULL OUTER JOIN is below:
+
+![alt text](img/full_outer_dig.png)
