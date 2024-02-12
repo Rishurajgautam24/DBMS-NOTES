@@ -134,4 +134,26 @@ LEFT JOIN zoo_2 ON zoo_1.id = zoo_2.id;
 ### The result:
 ![alt text](img/left_join.png)
 
-As you can see, all animals from zoo_1 are included, even those without entries in zoo_2. 
+As you can see, all animals from zoo_1 are included
+
+The Venn diagram for a LEFT JOIN is as below:
+
+![alt text](img/left_join_dig.png)
+
+
+
+# 3. RIGHT JOIN
+
+The `RIGHT JOIN` or `RIGHT OUTER JOIN` works exactly opposite to the LEFT JOIN. It returns a complete set of rows from the right table with the matching rows if available from the left table. If there is no match, the left side will have null values.
+
+```sql
+SELECT *
+FROM orders AS o
+RIGHT JOIN customers AS c ON o.customer_id = c.customer_id;
+```
+
+![alt text](img/right_join.png)
+
+The Venn diagram for a RIGHT OUTER JOIN is below:
+
+![alt text](img/right_outer_dig.png)
