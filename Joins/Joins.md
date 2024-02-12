@@ -103,3 +103,35 @@ Zoo_2 table Looks Like this
 ## Now Inner Join of these two tables 
 ![alt text](img/innerjoin_zoo.png)
 
+
+
+# 2.  LEFT JOIN
+  In PostgreSQL, the `LEFT JOIN` (also known as `LEFT OUTER JOIN`) is a powerful tool for combining data from two tables, even when matching rows aren't present in both. It ensures all rows from the "left" table are included in the result, along with their corresponding matches from the "right" table if available. If no match exists, the right table's columns are filled with `NULL` values.
+
+## Understanding the Concept
+  Imagine you have two zoo tables:
+
+* `zoo_1`: Stores animal IDs and their species.
+* `zoo_2`: Tracks additional details like weight and diet, but only for a subset of animals in zoo_1.
+
+A LEFT JOIN lets you retrieve all animals from `zoo_1` along with their corresponding weight and diet from `zoo_2` (if available). This is useful for scenarios like
+* Finding all animals, even those without details in `zoo_2`.
+* Identifying animals missing specific information in `zoo_2`.
+
+>Syntax: 
+```sql
+SELECT column1, column2, ...
+FROM table1
+LEFT JOIN table2 ON table1.join_column = table2.join_column;
+```
+
+## Example: Combining Animal Data
+```sql
+SELECT *
+FROM zoo_1 
+LEFT JOIN zoo_2 ON zoo_1.id = zoo_2.id;
+```
+### The result:
+![alt text](img/left_join.png)
+
+As you can see, all animals from zoo_1 are included, even those without entries in zoo_2. 
