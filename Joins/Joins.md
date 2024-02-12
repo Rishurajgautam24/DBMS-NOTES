@@ -54,6 +54,7 @@ INNER JOIN Orders o ON c.customer_id = o.customer_id;
 As seen in the above output, the inner join returns a result set that contains row in the left table that matches the row in the right table.
 
 The Venn diagram for INNER JOIN is as below:
+
 ![alt text](img/innerjoin_img.png)
 
 
