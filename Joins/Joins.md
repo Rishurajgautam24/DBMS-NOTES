@@ -157,3 +157,67 @@ RIGHT JOIN customers AS c ON o.customer_id = c.customer_id;
 The Venn diagram for a RIGHT OUTER JOIN is below:
 
 ![alt text](img/right_outer_dig.png)
+
+# 4. FULL OUTER JOIN
+
+The full outer join or full join returns a result set that contains all rows from both the left and right tables, with the matching rows from both sides where available. If there is no match, the missing side contains null values.
+
+### EXAMPLE
+```sql
+CREATE TABLE products (
+  product_id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  price DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE categories (
+  category_id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE product_categories (
+  product_id INTEGER NOT NULL REFERENCES products(product_id),
+  category_id INTEGER NOT NULL REFERENCES categories(category_id),
+  PRIMARY KEY (product_id, category_id)
+);
+
+
+INSERT INTO products (name, price) VALUES
+  ('T-shirt', 20.00),
+  ('Mug', 15.00),
+  ('Hoodie', 35.00);
+
+INSERT INTO categories (name) VALUES
+  ('Clothing'),
+  ('Accessories'),
+  ('Food');
+
+INSERT INTO product_categories (product_id, category_id) VALUES
+  (1, 1),
+  (2, 1),
+  (3, 1),
+  (2, 2);
+SELECT * FROM products;
+SELECT * FROM categories;
+SELECT * FROM product_categories;
+
+SELECT *
+FROM products AS p
+FULL OUTER JOIN product_categories AS pc ON p.product_id = pc.product_id
+FULL OUTER JOIN categories AS c ON pc.category_id = c.category_id;
+
+```
+
+Let's Look at Tables
+> PRODUCTS TABLE
+![alt text](img/products.png)
+
+> CATEGORIES TABLE
+![alt text](img/categories.png)
+
+> PRODUCT CATEGORY TABLE
+![alt text](img/prod_cat.png)
+
+
+> FULL OUTER JOIN TABLE
+![alt text](img/full_outer_JOIN.png)
