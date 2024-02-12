@@ -38,6 +38,7 @@ INSERT INTO Orders (customer_id, order_date, total_amount) VALUES
 #### Customer Table
 ![alt text](img/customer.png)
 
+
 #### Orders Table
 
 ![alt text](img/order.png)
