@@ -226,3 +226,20 @@ Let's Look at Tables
 The Venn diagram for a FULL OUTER JOIN is below:
 
 ![alt text](img/full_outer_dig.png)
+
+
+
+
+# 5. CROSS JOIN
+> The CROSS JOIN keyword matches ALL records from the "left" table with EACH record from the "right" table.
+  That means that all records from the "right" table will be returned for each record in the "left" table.
+  This way of joining can potentially return very large table, and you should not use it if you do not have to.
+
+Different from other join clauses such as `LEFT JOIN`  or `INNER JOIN`, the `CROSS JOIN` clause does not have a join predicate.
+Suppose you have to perform a `CROSS JOIN` of `table1` and `table2`.
+If table1 has `n` rows and table2 has `m` rows, the `CROSS JOIN` will return a result set that has `nxm` rows.
+
+- For example, the table1 has 1,000 rows and table2 has 1,000 rows, the result set will have 1,000 x 1,000 = 1,000,000 rows.
+Because a `CROSS JOIN` may generate a large result set, you should use it judiciously to avoid performance issues.
+
+
